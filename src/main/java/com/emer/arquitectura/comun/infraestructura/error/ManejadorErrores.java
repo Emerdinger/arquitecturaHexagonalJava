@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -19,8 +20,12 @@ public class ManejadorErrores {
         CODIGOS_ESTADO.put(
                 TestError.class.getSimpleName(), HttpStatus.BAD_REQUEST.value()
         );
+        CODIGOS_ESTADO.put(
+                ProductoNoEncontrado.class.getSimpleName(), HttpStatus.NOT_FOUND.value()
+        );
     }
 
+    @ExceptionHandler(Exception.class)
     public final ResponseEntity<Error> handleAllExceptions(Exception exception) {
         ResponseEntity<Error> resultadoError;
 
