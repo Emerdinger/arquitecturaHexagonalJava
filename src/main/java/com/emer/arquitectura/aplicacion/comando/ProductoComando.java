@@ -15,5 +15,6 @@ public class ProductoComando {
     private String categoria;
     private int cantidad;
     private double precio;
+    private String img;
 
 }

@@ -24,5 +24,6 @@ public class ProductoEntity {
     private int cantidad;
     private double precio;
     private LocalDate createdAt;
+    private String img;
 
 }
