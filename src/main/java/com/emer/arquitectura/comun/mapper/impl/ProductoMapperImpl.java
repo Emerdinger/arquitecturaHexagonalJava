@@ -23,6 +23,7 @@ public class ProductoMapperImpl  implements ProductoMapper {
         productoEntity.setPrecio(producto.getPrecio());
         productoEntity.setDescripcion(producto.getDescripcion());
         productoEntity.setCreatedAt(producto.getCreatedAt());
+        productoEntity.setImg(producto.getImg());
         return productoEntity;
     }
 
@@ -39,6 +40,7 @@ public class ProductoMapperImpl  implements ProductoMapper {
         producto.setPrecio(productoEntity.getPrecio());
         producto.setDescripcion(productoEntity.getDescripcion());
         producto.setCreatedAt(productoEntity.getCreatedAt());
+        producto.setImg(productoEntity.getImg());
         return producto;
     }
 
@@ -55,6 +57,7 @@ public class ProductoMapperImpl  implements ProductoMapper {
         producto.setPrecio(productoComando.getPrecio());
         producto.setDescripcion(productoComando.getDescripcion());
         producto.setCreatedAt(LocalDate.now());
+        producto.setImg(productoComando.getImg());
         return producto;
     }
 }

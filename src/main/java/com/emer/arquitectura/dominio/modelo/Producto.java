@@ -16,6 +16,7 @@ public class Producto extends Modelo<String> {
     private int cantidad;
     private double precio;
     private LocalDate createdAt;
+    private String img;
 
     public Producto(){super(null);}
 
@@ -26,7 +27,8 @@ public class Producto extends Modelo<String> {
                     String categoria,
                     int cantidad,
                     double precio,
-                    LocalDate createdAt) {
+                    LocalDate createdAt,
+                    String img) {
         super(id);
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -35,6 +37,7 @@ public class Producto extends Modelo<String> {
         this.cantidad = cantidad;
         this.precio = precio;
         this.createdAt = createdAt;
+        this.img = img;
     }
 
 }
