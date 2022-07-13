@@ -17,6 +17,7 @@ public class Producto extends Modelo<String> {
     private double precio;
     private LocalDate createdAt;
     private String img;
+    private String lol;
 
     public Producto(){super(null);}
 
@@ -38,6 +39,7 @@ public class Producto extends Modelo<String> {
         this.precio = precio;
         this.createdAt = createdAt;
         this.img = img;
+        this.lol = "Test despliegue";
     }
 
 }

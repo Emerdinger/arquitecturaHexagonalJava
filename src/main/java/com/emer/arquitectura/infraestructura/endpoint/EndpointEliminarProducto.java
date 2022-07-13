@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("productos")
 @RequiredArgsConstructor
