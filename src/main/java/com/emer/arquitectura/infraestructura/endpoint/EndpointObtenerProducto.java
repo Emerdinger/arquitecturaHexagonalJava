@@ -19,6 +19,11 @@ public class EndpointObtenerProducto {
 
     private final ManejadorObtenerProducto manejadorObtenerProducto;
 
+    @GetMapping("/health")
+    public Mono<String> test(@PathVariable String id) {
+        return Mono.just("Ok");
+    }
+
     @GetMapping("/{id}")
     public Mono<ObjetoRespuesta<Producto>> ejecutarObtenerProductoPorId(@PathVariable String id) {
         return manejadorObtenerProducto.ejecutarObtenerPorId(id);
@@ -27,6 +32,11 @@ public class EndpointObtenerProducto {
     @GetMapping("/all")
     public Flux<Producto> ejecutarObtenerTodosLosProductos() {
         return manejadorObtenerProducto.ejecutarObtenerTodos();
+    }
+
+    @GetMapping("/test/{plate}")
+    public Mono<String> ejecutarTest(@PathVariable String plate) {
+        return manejadorObtenerProducto.testVirtual(plate);
     }
 
 }

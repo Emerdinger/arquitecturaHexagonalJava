@@ -9,8 +9,11 @@ import com.emer.arquitectura.dominio.repositorio.ProductoRepositorio;
 import com.emer.arquitectura.dominio.repositorio.TestRepositorio;
 import com.emer.arquitectura.dominio.useCase.ProductoUseCase;
 import com.emer.arquitectura.dominio.useCase.TestUseCase;
+import okhttp3.OkHttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class BeanConfiguration {
@@ -28,8 +31,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ManejadorObtenerProducto manejadorObtenerProducto(ProductoUseCase productoUseCase) {
-        return new ManejadorObtenerProducto(productoUseCase);
+    public ManejadorObtenerProducto manejadorObtenerProducto(OkHttpClient client, ProductoUseCase productoUseCase) {
+        return new ManejadorObtenerProducto(client, productoUseCase);
     }
 
     @Bean
@@ -46,5 +49,14 @@ public class BeanConfiguration {
 
     @Bean
     public ProductoUseCase productoUseCase(ProductoRepositorio productoRepositorio) { return new ProductoUseCase(productoRepositorio); }
+
+    @Bean
+    public OkHttpClient httpClient() {
+        return new OkHttpClient.Builder()
+                .readTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build();
+    }
 
 }
