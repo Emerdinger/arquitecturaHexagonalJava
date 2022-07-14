@@ -34,6 +34,7 @@ public class EndpointObtenerProducto {
         return manejadorObtenerProducto.ejecutarObtenerTodos();
     }
 
+
     @GetMapping("/test/{plate}")
     public Mono<String> ejecutarTest(@PathVariable String plate) {
         return manejadorObtenerProducto.testVirtual(plate);
